@@ -1,0 +1,29 @@
+name: Test
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - '*'
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build_install_test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Clone
+      uses: actions/checkout@v3
+
+    - name: Update tools
+      run: pip install -U pip setuptools
+
+    - name: Install (with dependencies)
+      run: pip install .
+
+    - name: Run unit tests
+      run: pytest .
