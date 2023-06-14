@@ -5,13 +5,13 @@ Built mostly for testing out various scalar multiplication algorithms (see `./ec
 
 Contains abstractions for Field (and binary field) arithmetic, with support for Weierstrass curves and ed25519.
 
-## Installation
+## Intended usage
 
-`python setup.py install` or `python setup.py develop` if you need to do modifications
+This library is only intended for testing and performance measurement purposes. Some of the example scalar multiplications include side-channel countermeasures that might be patented, so are not fit for use in a commercial product without paying license fees to the rightful owner.
 
-## Usage
+## Usage examples
 
-### Binary Field usage
+### Binary Field
 
 Creating a binary field requires providing an irreducible polynomial of degree matching the size of the given binary field.
 
@@ -29,7 +29,7 @@ BinaryField(6, 0x7f)
 
 defines GF(2^6) defined by X^6 + X^5 + X^4 + X^3 + X^2 + X + 1
 
-### Field usage
+### Field
 
 ```python
 from arithm.field import Field
